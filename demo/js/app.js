@@ -42,7 +42,8 @@ const App = {
     switch (page) {
       case 'dashboard': DashboardPage.render(main); break;
       case 'knowledge': KnowledgePage.render(main); break;
-      case 'agent': AgentPage.render(main); break;
+      case 'messages': MessagesPage.render(main); break;
+      case 'admin-assist': AdminAssistPage.render(main); break;
       case 'system': SystemPage.render(main); break;
       case 'audit': AuditPage.render(main); break;
       default: main.innerHTML = '<p class="text-gray-500">頁面不存在</p>';

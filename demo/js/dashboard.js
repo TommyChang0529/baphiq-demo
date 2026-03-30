@@ -40,7 +40,7 @@ const DashboardPage = {
           <div class="space-y-3">
             ${this.slaBar('意圖辨識準確率 (≥85%)', d.intentAccuracy, d.intentAccuracy >= 85)}
             ${this.slaBar('回覆正確率 (≥90%)', d.replyAccuracy, d.replyAccuracy >= 90)}
-            ${this.slaBar('人機轉接率', d.handoffRate, true, true)}
+            ${this.slaBar('AI 無法回答率（建議留言）', d.suggestMessageRate, true, true)}
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@ const DashboardPage = {
               <td>${confidenceBadge(c.confidence)}</td>
               <td>${c.resolved
                 ? '<span class="badge badge-green">AI 解決</span>'
-                : '<span class="badge badge-yellow">已轉接</span>'
+                : '<span class="badge badge-yellow">建議留言</span>'
               }</td>
               <td>${'★'.repeat(c.satisfaction)}${'☆'.repeat(5 - c.satisfaction)}</td>
             </tr>
@@ -169,7 +169,7 @@ const DashboardPage = {
         ${conv.messages.map(m => `
           <div class="flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}">
             <div>
-              <div class="text-xs text-gray-400 mb-1 ${m.role === 'user' ? 'text-right' : ''}">${m.role === 'user' ? '使用者' : m.role === 'agent' ? '🎧 真人客服' : '🤖 AI'}</div>
+              <div class="text-xs text-gray-400 mb-1 ${m.role === 'user' ? 'text-right' : ''}">${m.role === 'user' ? '使用者' : m.role === 'agent' ? '📝 留言回覆' : '🤖 AI'}</div>
               <div class="chat-bubble ${m.role}">${m.text.replace(/\n/g, '<br>')}</div>
               ${m.sources && m.sources.length > 0 ? `
                 <div class="mt-1 flex flex-wrap gap-1">

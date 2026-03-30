@@ -94,16 +94,17 @@ const SystemPage = {
               <th>角色</th>
               <th>儀表板</th>
               <th>知識庫管理</th>
-              <th>客服工作台</th>
+              <th>留言板管理</th>
+              <th>內部行政輔助</th>
               <th>系統管理</th>
               <th>資安稽核</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="font-medium">系統管理員</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
-            <tr><td class="font-medium">知識管理員</td><td>👁</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
-            <tr><td class="font-medium">客服督導</td><td>✓</td><td>👁</td><td>✓</td><td>—</td><td>—</td></tr>
-            <tr><td class="font-medium">客服人員</td><td>—</td><td>—</td><td>✓</td><td>—</td><td>—</td></tr>
+            <tr><td class="font-medium">系統管理員</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            <tr><td class="font-medium">知識管理員</td><td>👁</td><td>✓</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td class="font-medium">客服督導</td><td>✓</td><td>👁</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+            <tr><td class="font-medium">客服人員</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
         <div class="text-xs text-gray-400 mt-2">✓ 完整權限 · 👁 唯讀 · — 無權限</div>
@@ -231,7 +232,7 @@ const SystemPage = {
               oninput="document.getElementById('confidence-val').textContent = this.value">
             <span id="confidence-val" class="text-lg font-bold text-green-700 w-12 text-center">${s.confidenceThreshold}</span>
           </div>
-          <div class="text-xs text-gray-400 mt-1">低於此閾值的回覆將觸發人機轉接</div>
+          <div class="text-xs text-gray-400 mt-1">低於此閾值的回覆將建議使用者透過留言板提問</div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
@@ -360,7 +361,7 @@ const SystemPage = {
     return `
       <div class="bg-white rounded-xl border border-gray-200 p-5 space-y-6">
         <div>
-          <h2 class="font-semibold text-gray-700 mb-4">真人客服服務時段</h2>
+          <h2 class="font-semibold text-gray-700 mb-4">留言回覆服務時段</h2>
           <div class="grid grid-cols-2 gap-4" style="max-width:400px">
             <div>
               <label class="form-label">開始時間</label>
@@ -371,7 +372,7 @@ const SystemPage = {
               <input type="time" class="form-input" value="${s.end}">
             </div>
           </div>
-          <div class="text-xs text-gray-400 mt-2">非服務時段將自動切換為純 AI 客服模式（24×7 運作）</div>
+          <div class="text-xs text-gray-400 mt-2">非服務時段留言仍可提交，AI 客服 24×7 運作，留言將於服務時段內處理</div>
         </div>
 
         <div>

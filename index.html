@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>犬貓出入境檢疫智能平台 — 後台管理系統</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col overflow-hidden">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between shrink-0 z-10">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-sm">防</div>
+      <span class="text-lg font-semibold text-gray-800">犬貓出入境檢疫智能平台 — 後台管理系統</span>
+      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">DEMO</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-500">👤 管理員</span>
+      <button class="text-sm text-gray-400 hover:text-gray-600">登出</button>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="w-56 bg-white border-r border-gray-200 flex flex-col shrink-0">
+      <div class="flex-1 py-4">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">📊</span>
+          <span>儀表板暨對話紀錄</span>
+        </a>
+        <a href="#knowledge" class="nav-item" data-page="knowledge">
+          <span class="nav-icon">📚</span>
+          <span>知識庫管理</span>
+        </a>
+        <a href="#messages" class="nav-item" data-page="messages">
+          <span class="nav-icon">📝</span>
+          <span>留言板管理</span>
+        </a>
+        <a href="#admin-assist" class="nav-item" data-page="admin-assist">
+          <span class="nav-icon">🔍</span>
+          <span>內部行政輔助</span>
+        </a>
+        <a href="#system" class="nav-item" data-page="system">
+          <span class="nav-icon">⚙️</span>
+          <span>系統管理</span>
+        </a>
+        <a href="#audit" class="nav-item" data-page="audit">
+          <span class="nav-icon">🔒</span>
+          <span>資安稽核</span>
+        </a>
+      </div>
+      <div class="p-4 border-t border-gray-100 text-xs text-gray-400 text-center">
+        &copy; 2026 農業部動植物防疫檢疫署
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1 overflow-y-auto p-6">
+      <!-- Pages rendered here by JS -->
+    </main>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+    <div id="modal-content" class="bg-white rounded-xl shadow-2xl max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden">
+    <div class="bg-gray-800 text-white px-5 py-3 rounded-lg shadow-lg text-sm flex items-center gap-2">
+      <span id="toast-msg"></span>
+    </div>
+  </div>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/messages.js"></script>
+  <script src="js/admin-assist.js"></script>
+  <script src="js/system.js"></script>
+  <script src="js/audit.js"></script>
+</body>
+</html>
